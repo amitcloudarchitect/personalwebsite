@@ -1,6 +1,6 @@
 import { Mail } from 'lucide-react'
 import { Button } from '@/components/Button'
-import { GitHubIcon, LinkedInIcon, YouTubeIcon } from '@/components/SocialIcons'
+import { GitHubIcon, LinkedInIcon, MediumIcon, YouTubeIcon } from '@/components/SocialIcons'
 import { PageIntro } from '@/components/PageIntro'
 import { Seo } from '@/components/Seo'
 import { connectTopics } from '@/data/site'
@@ -13,8 +13,10 @@ export default function ContactPage() {
     { label: 'LinkedIn', href: safeHttpUrl(config.linkedin), icon: <LinkedInIcon className="h-4 w-4" /> },
     { label: 'GitHub', href: safeHttpUrl(config.github), icon: <GitHubIcon className="h-4 w-4" /> },
     { label: 'YouTube', href: safeHttpUrl(config.youtube), icon: <YouTubeIcon className="h-4 w-4" /> },
+    { label: 'Medium', href: safeHttpUrl(config.medium), icon: <MediumIcon className="h-4 w-4" /> },
     { label: 'Email', href: safeMailto(config.email), icon: <Mail className="h-4 w-4" aria-hidden="true" /> },
   ].filter((item) => item.href)
+  const pending = [config.youtube ? '' : 'YouTube', config.medium ? '' : 'Medium'].filter(Boolean)
   const resume = safeHttpUrl(config.resumeUrl)
 
   return (
@@ -52,11 +54,10 @@ export default function ContactPage() {
               </li>
             ))}
           </ul>
-        ) : (
-          <p className="mt-8 max-w-xl text-muted">
-            Direct links are added through environment variables or `public/config.json`. Until then, this page stays free of placeholder profile URLs.
-          </p>
-        )}
+        ) : null}
+        {pending.length > 0 ? (
+          <p className="mt-6 max-w-xl text-sm text-muted">{pending.join(' and ')} will be linked when those channels are ready.</p>
+        ) : null}
         {resume ? (
           <div className="mt-8">
             <Button href={resume} variant="secondary">

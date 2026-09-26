@@ -60,7 +60,8 @@ You can also edit `public/config.json` before the image is built, or replace `/u
 | `VITE_LINKEDIN_URL` | LinkedIn profile |
 | `VITE_GITHUB_URL` | GitHub profile |
 | `VITE_EMAIL` | Email address for a mailto link |
-| `VITE_YOUTUBE_URL` | YouTube channel or profile |
+| `VITE_YOUTUBE_URL` | YouTube channel or profile. Left blank until the channel exists. |
+| `VITE_MEDIUM_URL` | Medium profile. Left blank until the publication exists. |
 | `VITE_RESUME_URL` | Optional resume file URL |
 
 Leave a value empty to hide that link. Do not put phone numbers, secrets, or customer data in these files.
@@ -86,7 +87,7 @@ For local development the origin is `http://localhost:5173`. For the Docker cont
 
 Newsletter addresses are saved in `data/community.json` on the machine running the API. The form does not send email. Connect a mail sender later if you want letters delivered. Comments are plain text. An email address used to sign in is stored with the account and is not shown on the article.
 
-`public/config.json` accepts the same fields: `siteUrl`, `linkedin`, `github`, `email`, `youtube`, `resumeUrl`.
+`public/config.json` accepts the same fields: `siteUrl`, `linkedin`, `github`, `email`, `youtube`, `medium`, `resumeUrl`. LinkedIn and GitHub are set. YouTube and Medium stay empty until those channels exist.
 
 ## Adding a project
 

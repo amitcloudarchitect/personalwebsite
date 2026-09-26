@@ -3,7 +3,9 @@ import type { SiteConfig } from '@/types'
 import { safeHttpUrl } from '@/utils/urls'
 
 export function personJsonLd(config: SiteConfig) {
-  const sameAs = [config.linkedin, config.github, config.youtube].map((value) => safeHttpUrl(value)).filter(Boolean)
+  const sameAs = [config.linkedin, config.github, config.youtube, config.medium]
+    .map((value) => safeHttpUrl(value))
+    .filter(Boolean)
   return {
     '@context': 'https://schema.org',
     '@type': 'Person',

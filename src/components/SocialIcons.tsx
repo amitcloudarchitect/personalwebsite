@@ -22,6 +22,17 @@ export function GitHubIcon({ className }: IconProps) {
   )
 }
 
+export function MediumIcon({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} aria-hidden="true">
+      <path
+        fill="currentColor"
+        d="M4.2 7.4a1.7 1.7 0 1 0 0-3.4 1.7 1.7 0 0 0 0 3.4zM3.2 8.8h2v11.6h-2V8.8zm6.1 0h1.9l.1 1.2h.1c.5-.9 1.7-1.5 2.9-1.5 2 0 3.5 1.4 3.5 4.1v7.8h-2v-7.1c0-1.5-.5-2.5-1.8-2.5-1 0-1.6.7-1.8 1.4-.1.2-.1.6-.1.9v7.3h-2V8.8z"
+      />
+    </svg>
+  )
+}
+
 export function YouTubeIcon({ className }: IconProps) {
   return (
     <svg viewBox="0 0 24 24" className={className} aria-hidden="true">

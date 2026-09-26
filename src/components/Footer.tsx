@@ -1,7 +1,7 @@
 import { Mail } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { NewsletterForm } from '@/components/NewsletterForm'
-import { GitHubIcon, LinkedInIcon, YouTubeIcon } from '@/components/SocialIcons'
+import { GitHubIcon, LinkedInIcon, MediumIcon, YouTubeIcon } from '@/components/SocialIcons'
 import { profile } from '@/data/profile'
 import { navigation } from '@/data/site'
 import { useConfig } from '@/hooks/useConfig'
@@ -13,8 +13,10 @@ export function Footer() {
     { label: 'LinkedIn', href: safeHttpUrl(config.linkedin), icon: <LinkedInIcon className="h-4 w-4" /> },
     { label: 'GitHub', href: safeHttpUrl(config.github), icon: <GitHubIcon className="h-4 w-4" /> },
     { label: 'YouTube', href: safeHttpUrl(config.youtube), icon: <YouTubeIcon className="h-4 w-4" /> },
+    { label: 'Medium', href: safeHttpUrl(config.medium), icon: <MediumIcon className="h-4 w-4" /> },
     { label: 'Email', href: safeMailto(config.email), icon: <Mail className="h-4 w-4" aria-hidden="true" /> },
   ].filter((item) => item.href)
+  const pending = [config.youtube ? '' : 'YouTube', config.medium ? '' : 'Medium'].filter(Boolean)
 
   const explore = navigation.slice(0, 6)
   const knowledge = navigation.slice(6)
@@ -48,6 +50,9 @@ export function Footer() {
           ) : (
             <p className="mt-4 text-sm text-muted">Professional links can be added in the site configuration.</p>
           )}
+          {pending.length > 0 ? (
+            <p className="mt-3 text-sm text-muted">{pending.join(' and ')} will be linked when those channels are ready.</p>
+          ) : null}
         </div>
         <nav aria-label="Footer explore">
           <p className="font-display text-lg text-ink">Explore</p>

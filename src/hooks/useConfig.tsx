@@ -24,6 +24,7 @@ export function ConfigProvider({ children }: { children: ReactNode }) {
           github: pick(record.github, current.github),
           email: pick(record.email, current.email),
           youtube: pick(record.youtube, current.youtube),
+          medium: pick(record.medium, current.medium),
           resumeUrl: pick(record.resumeUrl, current.resumeUrl),
         }))
       })

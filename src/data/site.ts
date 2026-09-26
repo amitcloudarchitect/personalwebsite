@@ -20,11 +20,12 @@ export const navigation: NavItem[] = [
 ]
 
 export const defaultConfig: SiteConfig = {
-  siteUrl: envString(import.meta.env.VITE_SITE_URL).replace(/\/$/, ''),
-  linkedin: envString(import.meta.env.VITE_LINKEDIN_URL),
-  github: envString(import.meta.env.VITE_GITHUB_URL),
+  siteUrl: envString(import.meta.env.VITE_SITE_URL).replace(/\/$/, '') || 'https://amitkumarportfolio.com',
+  linkedin: envString(import.meta.env.VITE_LINKEDIN_URL) || 'https://www.linkedin.com/in/amitusit/',
+  github: envString(import.meta.env.VITE_GITHUB_URL) || 'https://github.com/amitcloudarchitect',
   email: envString(import.meta.env.VITE_EMAIL),
   youtube: envString(import.meta.env.VITE_YOUTUBE_URL),
+  medium: envString(import.meta.env.VITE_MEDIUM_URL),
   resumeUrl: envString(import.meta.env.VITE_RESUME_URL),
 }
 

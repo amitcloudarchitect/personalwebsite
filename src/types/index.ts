@@ -242,6 +242,7 @@ export type SiteConfig = {
   github: string
   email: string
   youtube: string
+  medium: string
   resumeUrl: string
 }
 
