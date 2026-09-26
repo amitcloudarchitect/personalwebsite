@@ -27,7 +27,12 @@ Write-Host "Site:    $SiteUrl"
 gcloud services enable run.googleapis.com cloudbuild.googleapis.com artifactregistry.googleapis.com storage.googleapis.com --project $Project
 if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
-$bucketExists = gcloud storage buckets describe "gs://$Bucket" --project $Project 2>$null
+$bucketExists = $null
+try {
+  $bucketExists = gcloud storage buckets describe "gs://$Bucket" --project $Project 2>$null
+} catch {
+  $bucketExists = $null
+}
 if (-not $bucketExists) {
   gcloud storage buckets create "gs://$Bucket" --project $Project --location $Region --uniform-bucket-level-access
   if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
