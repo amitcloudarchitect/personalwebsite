@@ -1,0 +1,27 @@
+services:
+  web:
+    build:
+      context: .
+      args:
+        VITE_SITE_URL: ${VITE_SITE_URL:-https://amitkumarportfolio.com}
+        VITE_LINKEDIN_URL: ${VITE_LINKEDIN_URL:-}
+        VITE_GITHUB_URL: ${VITE_GITHUB_URL:-}
+        VITE_EMAIL: ${VITE_EMAIL:-}
+        VITE_YOUTUBE_URL: ${VITE_YOUTUBE_URL:-}
+        VITE_RESUME_URL: ${VITE_RESUME_URL:-}
+    ports:
+      - "8080:80"
+    environment:
+      SESSION_SECRET: ${SESSION_SECRET:-}
+      GOOGLE_CLIENT_ID: ${GOOGLE_CLIENT_ID:-}
+      GOOGLE_CLIENT_SECRET: ${GOOGLE_CLIENT_SECRET:-}
+      MICROSOFT_CLIENT_ID: ${MICROSOFT_CLIENT_ID:-}
+      MICROSOFT_CLIENT_SECRET: ${MICROSOFT_CLIENT_SECRET:-}
+      FACEBOOK_APP_ID: ${FACEBOOK_APP_ID:-}
+      FACEBOOK_APP_SECRET: ${FACEBOOK_APP_SECRET:-}
+      PUBLIC_SITE_URL: ${VITE_SITE_URL:-}
+    volumes:
+      - community-data:/app/data
+
+volumes:
+  community-data:
